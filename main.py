@@ -55,4 +55,6 @@ def zipdir(path,ziph):
             ziph.write(os.path.join(path, file))
 
 if __name__ == '__main__':
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.mkdir(UPLOAD_FOLDER)
     app.run()
