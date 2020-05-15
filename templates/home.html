@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Заполнение документов</title>
+        <link rel="stylesheet" href="{{ url_for('static',    filename='css/styles.css') }}">
+
+    </head>
+    <body>
+        <h2>Заполнение документов</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p style="color: crimson;">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+        <form method="POST"  enctype="multipart/form-data">
+            <div>
+        <label   for="data" >Файл с данными:</label>
+       <input type="file" name="data" class="file-input" />
+       </div>
+       <br/>
+       <div>
+       <label for="template" >Шаблон документа:</label>
+       <input type="file" name="template" class="file-input" />
+       </div>
+       <br/>
+       <input type="submit" value="Заполнить" class="button">
+        </form>
+        <div class=button>
+            {% if filename %}
+        <a href="{{ url_for('download', filename=filename) }}">Скачать</a>
+        {%endif %}
+    </div>
+    </body>
+</html>
