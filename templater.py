@@ -58,8 +58,10 @@ def fill_docs(data_filename, template_filename,path):
             init = r[0].value.split()
             if len(init) == 3:
                 docx_replace_regex(doc, nameINIT, r''+list(init[1])[0] + '. ' + list(init[2])[0] + '. ' + init[0])
-            else:
+            elif len(init)==2:
                 docx_replace_regex(doc, nameINIT, r''+list(init[1])[0] + '. ' + init[0])
+            else:
+                docx_replace_regex(doc, nameINIT,r''+init[0])
             docx_replace_regex(doc, nameNOM, r''+str(r[0].value))
             docx_replace_regex(doc, nameTVOR, r''+str(r[1].value))
             docx_replace_regex(doc, idS, r''+str(r[2].value))
