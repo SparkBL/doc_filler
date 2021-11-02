@@ -37,7 +37,7 @@ def home():
 
 @app.route("/download/<filename>")
 def download(filename):
-            return send_from_directory(directory=UPLOAD_FOLDER,filename=filename,as_attachment=True,attachment_filename=filename)
+            return send_from_directory(path=UPLOAD_FOLDER+'/'+filename, directory=UPLOAD_FOLDER,filename=filename,as_attachment=True,attachment_filename=filename)
 
 
 
